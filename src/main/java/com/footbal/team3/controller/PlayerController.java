@@ -35,14 +35,16 @@ public class PlayerController {
                 .builder()
                 .playerNumber(playerReq.getPlayerNumber())
                 .playerPosition(playerReq.getPlayerPosition())
+                .playerName(playerReq.getName())
                 .build();
         playerService.save(newPlayer);
         return newPlayer;
     }
 
-    @PutMapping(value = "/player/{id}")
-    public Player updatePlayer(@PathVariable(value = "id") String id, @RequestBody PlayerCreationRequest playerReq) {
-        Player player = playerService.update(playerReq, id);
+    @PutMapping(value = "/player/{name}")
+    public Player updatePlayer(@PathVariable(value = "name") String name, @RequestBody PlayerCreationRequest playerReq) {
+        Player player = playerService.update(playerReq, name);
         return player;
     }
+
 }
