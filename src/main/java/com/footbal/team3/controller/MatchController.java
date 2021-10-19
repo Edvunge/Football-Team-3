@@ -1,17 +1,37 @@
 package com.footbal.team3.controller;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import com.footbal.team3.controller.request.MatchCreationRequest;
+import com.footbal.team3.model.Match;
+import com.footbal.team3.service.MatchService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
+
+@RestController
+@RequestMapping("/api")
 public class MatchController {
-    private String description;
-    private Date matchDate;
+
+    private final MatchService matchService;
+
+    public MatchController(MatchService matchService) {
+        this.matchService = matchService;
+    }
+
+
+    @PostMapping(value = "/match", consumes = "application/json", produces = "application/json")
+    public Match createMatch(@RequestBody MatchCreationRequest matchReq) {
+        Match newMatch = Match
+
+                    .builder()
+                    .description(matchReq.getDescription())
+                    .matchDate(matchReq.getMatchDate())
+                    .build();
+            matchService.save(newMatch);
+            return newMatch;
+        }
 }
 
 
