@@ -1,10 +1,9 @@
 package com.footbal.team3.controller;
 
+import com.footbal.team3.controller.request.PlayerCreationRequest;
 import com.footbal.team3.model.Player;
 import com.footbal.team3.service.PlayerService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,4 +28,15 @@ public class PlayerController {
         Player player = playerService.findByName(id);
         return player;
     }
+
+    /*@PostMapping(value = "/players", consumes = "application/json", produces = "application/json")
+    public Player createPlayer(@RequestBody PlayerCreationRequest playerReq) {
+        Player newPlayer = Player
+                .builder()
+                .player(playerReq.getPetType())
+                .petName(playerReq.getPetName())
+                .build();
+        petService.save(newPet);
+        return newPet;
+    }*/
 }
