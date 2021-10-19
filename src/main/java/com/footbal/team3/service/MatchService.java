@@ -4,6 +4,9 @@ import com.footbal.team3.model.Match;
 import com.footbal.team3.repository.MatchRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class MatchService {
 
@@ -15,5 +18,11 @@ public class MatchService {
 
     public Match save(Match newMatch) {
         return matchRepository.save(newMatch);
+    }
+
+    public List<Match> matchList() {
+        List<Match> matchList;
+        matchList = matchRepository.findAll();
+        return matchList;
     }
 }
