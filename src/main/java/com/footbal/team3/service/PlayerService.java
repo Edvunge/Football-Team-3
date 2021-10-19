@@ -1,6 +1,7 @@
 package com.footbal.team3.service;
 
 import com.footbal.team3.controller.request.PlayerCreationRequest;
+import com.footbal.team3.exception.PlayerNotFound;
 import com.footbal.team3.model.Player;
 import com.footbal.team3.repository.PlayerRepository;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class PlayerService {
     }
 
     public Player findById(String id) {
-        Player player = playerRepository.findById(id).orElseThrow();
+        Player player = playerRepository.findById(id).orElseThrow(PlayerNotFound::new);
         return player;
     }
 
