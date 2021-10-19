@@ -18,13 +18,13 @@ public class MatchController {
     public MatchController(MatchService matchService) {
         this.matchService = matchService;
     }
-    @GetMapping(value = "/match", consumes = "application/json", produces = "application/json")
+    @GetMapping(value = "/match", produces = "application/json")
     public List<Match> matchList() {
         return matchService.matchList();
     }
-    @GetMapping(value = "/match", consumes = "application/json", produces = "application/json")
-    public Match findById() {
-        return matchService.findById(findById().getId());
+    @GetMapping(value = "/match/{id}", consumes = "application/json", produces = "application/json")
+    public Match findById(String id) {
+        return matchService.findById(id);
     }
     @PostMapping(value = "/match", consumes = "application/json", produces = "application/json")
     public Match createMatch(@RequestBody MatchCreationRequest matchReq) {
