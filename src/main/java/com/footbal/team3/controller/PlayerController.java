@@ -1,9 +1,12 @@
 package com.footbal.team3.controller;
 
+import com.footbal.team3.model.Player;
 import com.footbal.team3.service.PlayerService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
