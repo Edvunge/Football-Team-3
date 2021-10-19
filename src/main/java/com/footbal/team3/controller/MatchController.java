@@ -9,7 +9,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class CreateMatch {
+public class MatchController {
     private String description;
     private Date matchDate;
 }
