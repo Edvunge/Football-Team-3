@@ -39,6 +39,6 @@ public class PlayerService {
     }
 
     public Player findByName(String name) {
-        return playerRepository.findByName(name).orElseThrow(PlayerNotFound::new);
+        return playerRepository.findByPlayerName(name).orElseThrow(PlayerNotFound::new);
     }
 }
