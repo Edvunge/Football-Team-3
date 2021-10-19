@@ -1,6 +1,9 @@
 package com.footbal.team3.service;
 
+import com.footbal.team3.controller.request.MatchCreationRequest;
+import com.footbal.team3.exception.PlayerNotFound;
 import com.footbal.team3.model.Match;
+import com.footbal.team3.model.Player;
 import com.footbal.team3.repository.MatchRepository;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +27,18 @@ public class MatchService {
         List<Match> matchList;
         matchList = matchRepository.findAll();
         return matchList;
+    }
+
+    public Match findById(String id) {
+        Match match = matchRepository.findById(id).orElseThrow();
+        return match;
+    }
+
+    public Match update(MatchCreationRequest matchReq, String id) {
+
+        Match match = this.findById(id);
+        match.setMatchDate(matchReq.getMatchDate());
+        match.setDescription(matchReq.getDescription());
+        return match;
     }
 }

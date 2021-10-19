@@ -40,7 +40,7 @@ public class PlayerController {
         return newPlayer;
     }
 
-    @PutMapping(value = "/cars/{id}")
+    @PutMapping(value = "/player/{id}")
     public Player updatePlayer(@PathVariable(value = "id") String id, @RequestBody PlayerCreationRequest playerReq) {
         Player player = playerService.update(playerReq, id);
         return player;
