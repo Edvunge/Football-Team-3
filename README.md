@@ -40,31 +40,5 @@ exception:
 - DuplicatedPlayer
 - DuplicatedMatch
 
-
-
-----------------------------------------------------------------------------------------------------------------------------
-
 <br>
 <br>
-<br>
-
-Tasks:
-1. FT-CreateProject
-2. FT-CreateReadMe
-3. FT-CreateMongoDB
-4. FT-ConnectDB
-5. FT-CreateModelPlayer
-6. FT-CreateModelMatch
-7. FT-getallplayers_getplayerbyname 
-8. FT-creaplayer_updateplayer
-9. FT-getallmatch_getmatchbyopponent
-
-10.FT-creatematch
-
-11.FT-updatematch
-
-12.FT-playerexception-exceptionhandler
-
-13.FT-matchexception-exceptionhandler
-
-14.FT-HttpErrorResponse
