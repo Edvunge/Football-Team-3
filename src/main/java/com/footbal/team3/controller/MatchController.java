@@ -4,10 +4,9 @@ package com.footbal.team3.controller;
 import com.footbal.team3.controller.request.MatchCreationRequest;
 import com.footbal.team3.model.Match;
 import com.footbal.team3.service.MatchService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -23,7 +22,10 @@ public class MatchController {
     public List<Match> matchList() {
         return matchService.matchList();
     }
-
+    @GetMapping(value = "/match", consumes = "application/json", produces = "application/json")
+    public Match findById() {
+        return matchService.findById(findById().getId());
+    }
     @PostMapping(value = "/match", consumes = "application/json", produces = "application/json")
     public Match createMatch(@RequestBody MatchCreationRequest matchReq) {
         Match newMatch = Match
