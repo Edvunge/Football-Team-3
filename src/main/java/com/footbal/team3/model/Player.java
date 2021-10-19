@@ -1,13 +1,14 @@
 package com.footbal.team3.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-@Entity
+@Document
 public class Player {
     @javax.persistence.Id
     @Column(name = "id", nullable = false)
