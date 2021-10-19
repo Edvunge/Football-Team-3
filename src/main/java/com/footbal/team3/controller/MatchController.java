@@ -2,16 +2,13 @@ package com.footbal.team3.controller;
 
 
 import com.footbal.team3.controller.request.MatchCreationRequest;
-import com.footbal.team3.controller.request.PlayerCreationRequest;
 import com.footbal.team3.model.Match;
-import com.footbal.team3.model.Player;
 import com.footbal.team3.service.MatchService;
 import org.springframework.web.bind.annotation.*;
-<<<<<<<<< Temporary merge branch 1
+
 
 import java.util.List;
-=========
->>>>>>>>> Temporary merge branch 2
+
 
 
 @RestController
@@ -27,9 +24,9 @@ public class MatchController {
     public List<Match> matchList() {
         return matchService.matchList();
     }
-    @GetMapping(value = "/match", consumes = "application/json", produces = "application/json")
-    public Match findById() {
-        return matchService.findById(findById().getId());
+    @GetMapping(value = "/match/{id}", consumes = "application/json", produces = "application/json")
+    public Match findById(String id) {
+        return matchService.findById(id);
     }
     @PostMapping(value = "/match", consumes = "application/json", produces = "application/json")
     public Match createMatch(@RequestBody MatchCreationRequest matchReq) {

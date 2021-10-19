@@ -29,4 +29,25 @@ public class ExceptionsHandler {
                 LocalDateTime.now()
         );
     }
+
+
+    @ExceptionHandler({MatchNotFound.class})
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public HttpErrorResponse handleGenericException(MatchNotFound exception) {
+        return new HttpErrorResponse(
+                404,
+                exception.getMessage(),
+                LocalDateTime.now()
+        );
+    }
+    @ExceptionHandler({DuplicatedMatch.class})
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public HttpErrorResponse handleGenericException(DuplicatedMatch exception) {
+        return new HttpErrorResponse(
+                404,
+                exception.getMessage(),
+                LocalDateTime.now()
+        );
+    }
+
 }
