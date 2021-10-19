@@ -1,10 +1,9 @@
 package com.footbal.team3.controller;
 
+import com.footbal.team3.controller.request.PlayerCreationRequest;
 import com.footbal.team3.model.Player;
 import com.footbal.team3.service.PlayerService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,7 +25,24 @@ public class PlayerController {
 
     @GetMapping("/players/{id}")
     public Player getPlayerByName(String id) {
-        Player player = playerService.findByName(id);
+        Player player = playerService.findById(id);
+        return player;
+    }
+
+    @PostMapping(value = "/players", consumes = "application/json", produces = "application/json")
+    public Player createPlayer(@RequestBody PlayerCreationRequest playerReq) {
+        Player newPlayer = Player
+                .builder()
+                .playerNumber(playerReq.getPlayerNumber())
+                .playerPosition(playerReq.getPlayerPosition())
+                .build();
+        playerService.save(newPlayer);
+        return newPlayer;
+    }
+
+    @PutMapping(value = "/cars/{id}")
+    public Player updatePlayer(@PathVariable(value = "id") String id, @RequestBody PlayerCreationRequest playerReq) {
+        Player player = playerService.update(playerReq, id);
         return player;
     }
 }
