@@ -12,11 +12,13 @@ public class Player {
     private String id;
     private int playerNumber;
     private String playerPosition;
+    private String playerName;
 
-    public Player(String id, int playerNumber, String playerPosition) {
+    public Player(String id, int playerNumber, String playerPosition, String playerName) {
         this.id = id;
         this.playerNumber = playerNumber;
         this.playerPosition = playerPosition;
+        this.playerName = playerName;
     }
 
     public String getId() {
@@ -41,5 +43,13 @@ public class Player {
 
     public void setPlayerPosition(String playerPosition) {
         this.playerPosition = playerPosition;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 }
