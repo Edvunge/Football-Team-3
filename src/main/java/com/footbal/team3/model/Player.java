@@ -1,45 +1,32 @@
 package com.footbal.team3.model;
 
-import org.springframework.data.annotation.Id;
+import lombok.Builder;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 @Document
+@Builder
 public class Player {
     @javax.persistence.Id
     @Column(name = "id", nullable = false)
-    private Long id;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long playerId;
+    private String id;
     private int playerNumber;
     private String playerPosition;
+    private String playerName;
 
-    public Long getId() {
+    public Player(String id, int playerNumber, String playerPosition, String playerName) {
+        this.id = id;
+        this.playerNumber = playerNumber;
+        this.playerPosition = playerPosition;
+        this.playerName = playerName;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
-    }
-
-    public Player(Long playerId, int playerNumber, String playerPosition) {
-        this.playerId = playerId;
-        this.playerNumber = playerNumber;
-        this.playerPosition = playerPosition;
-    }
-
-    public Long getPlayerId() {
-        return playerId;
-    }
-
-    public void setPlayerId(Long playerId) {
-        this.playerId = playerId;
     }
 
     public int getPlayerNumber() {
@@ -56,5 +43,13 @@ public class Player {
 
     public void setPlayerPosition(String playerPosition) {
         this.playerPosition = playerPosition;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 }
