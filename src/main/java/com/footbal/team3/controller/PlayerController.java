@@ -23,9 +23,9 @@ public class PlayerController {
         return players;
     }
 
-    @GetMapping("/players/{id}")
-    public Player getPlayerByName(String id) {
-        Player player = playerService.findById(id);
+    @GetMapping("/players/{name}")
+    public Player getPlayerByName(String name) {
+        Player player = playerService.findByName(name);
         return player;
     }
 

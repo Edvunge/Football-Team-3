@@ -37,4 +37,8 @@ public class PlayerService {
         player.setPlayerPosition(playerReq.getPlayerPosition());
         return playerRepository.save(player);
     }
+
+    public Player findByName(String name) {
+        return playerRepository.findByName(name).orElseThrow(PlayerNotFound::new);
+    }
 }
