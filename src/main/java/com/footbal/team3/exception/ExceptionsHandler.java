@@ -1,5 +1,6 @@
 package com.footbal.team3.exception;
 
+import com.footbal.team3.controller.HttpErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
