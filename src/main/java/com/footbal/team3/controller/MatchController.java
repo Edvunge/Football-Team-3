@@ -39,11 +39,9 @@ public class MatchController {
             return newMatch;
         }
 
-
     @PutMapping(value = "/match/{id}")
     public Match updateMatch(@PathVariable(value = "id") String id, @RequestBody MatchCreationRequest matchReq) {
-        Match match = matchService.update(matchReq, id);
-        return match;
+        return matchService.update(matchReq, id);
     }
 }
 

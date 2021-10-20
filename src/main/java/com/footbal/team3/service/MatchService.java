@@ -1,6 +1,7 @@
 package com.footbal.team3.service;
 
 import com.footbal.team3.controller.request.MatchCreationRequest;
+import com.footbal.team3.exception.MatchNotFound;
 import com.footbal.team3.exception.PlayerNotFound;
 import com.footbal.team3.model.Match;
 import com.footbal.team3.model.Player;
@@ -30,12 +31,10 @@ public class MatchService {
     }
 
     public Match findById(String id) {
-        Match match = matchRepository.findById(id).orElseThrow();
-        return match;
+        return matchRepository.findById(id).orElseThrow(MatchNotFound::new);
     }
 
     public Match update(MatchCreationRequest matchReq, String id) {
-
         Match match = this.findById(id);
         match.setMatchDate(matchReq.getMatchDate());
         match.setDescription(matchReq.getDescription());

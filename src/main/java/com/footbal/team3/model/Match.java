@@ -11,11 +11,12 @@ import java.util.Date;
 @Setter
 @ToString
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Document
 public class Match {
     @Id
     String id;
-
     private String description;
     private Date matchDate;
 }

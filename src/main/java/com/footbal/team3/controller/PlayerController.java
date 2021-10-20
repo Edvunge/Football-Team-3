@@ -19,14 +19,12 @@ public class PlayerController {
 
     @GetMapping("/players")
     public List<Player> getPlayers() {
-        List<Player> players = playerService.findAll();
-        return players;
+        return playerService.findAll();
     }
 
     @GetMapping("/players/{playerName}")
     public Player getPlayerByName(@PathVariable(value = "playerName") String name) {
-        Player player = playerService.findByName(name);
-        return player;
+        return playerService.findByName(name);
     }
 
     @PostMapping(value = "/players", consumes = "application/json", produces = "application/json")
@@ -43,8 +41,7 @@ public class PlayerController {
 
     @PutMapping(value = "/player/{name}")
     public Player updatePlayer(@PathVariable(value = "name") String name, @RequestBody PlayerCreationRequest playerReq) {
-        Player player = playerService.update(playerReq, name);
-        return player;
+        return playerService.update(playerReq, name);
     }
 
 }

@@ -24,13 +24,7 @@ public class PlayerService {
     }
 
     public List<Player> findAll() {
-       List<Player> players = playerRepository.findAll();
-       return players;
-    }
-
-    public Player findById(String id) {
-        Player player = playerRepository.findById(id).orElseThrow(PlayerNotFound::new);
-        return player;
+        return playerRepository.findAll();
     }
 
     public void save(Player newPlayer) {

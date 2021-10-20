@@ -21,15 +21,14 @@ public class ExceptionsHandler {
         );
     }
     @ExceptionHandler({DuplicatedPlayer.class})
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.CONFLICT)
     public HttpErrorResponse handleGenericException(DuplicatedPlayer exception) {
         return new HttpErrorResponse(
-                404,
+                409,
                 exception.getMessage(),
                 LocalDateTime.now()
         );
     }
-
 
     @ExceptionHandler({MatchNotFound.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
@@ -41,10 +40,10 @@ public class ExceptionsHandler {
         );
     }
     @ExceptionHandler({DuplicatedMatch.class})
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.CONFLICT)
     public HttpErrorResponse handleGenericException(DuplicatedMatch exception) {
         return new HttpErrorResponse(
-                404,
+                409,
                 exception.getMessage(),
                 LocalDateTime.now()
         );
