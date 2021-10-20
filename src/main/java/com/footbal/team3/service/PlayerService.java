@@ -34,6 +34,7 @@ public class PlayerService {
     }
 
     public void save(Player newPlayer) {
+        //Throws exception if the players number already exists
         if (this.findByNumber(newPlayer.getPlayerNumber()).isPresent()) {
             throw new DuplicatedPlayer();}
         else {
@@ -47,6 +48,8 @@ public class PlayerService {
             player.setPlayerNumber(playerReq.getPlayerNumber());
             player.setPlayerPosition(playerReq.getPlayerPosition());
             player.setPlayerName(playerReq.getName());
+        //Throws exception if the new number for the player is not either the number he had or a number that does not
+        //exist for another player
         if (this.findByNumber(player.getPlayerNumber()).isPresent() && player.getPlayerNumber() != oldnumber) {
             throw new DuplicatedPlayer();
         }
