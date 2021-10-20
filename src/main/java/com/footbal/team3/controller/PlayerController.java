@@ -23,8 +23,8 @@ public class PlayerController {
         return players;
     }
 
-    @GetMapping("/players/{name}")
-    public Player getPlayerByName(String name) {
+    @GetMapping("/players/{playerName}")
+    public Player getPlayerByName(@PathVariable(value = "playerName") String name) {
         Player player = playerService.findByName(name);
         return player;
     }
